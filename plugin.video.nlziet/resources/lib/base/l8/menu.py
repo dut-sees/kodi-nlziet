@@ -414,6 +414,8 @@ def vod_series(label, type, id, **kwargs):
                 ))
 
         folder.add_items(items)
+    else:
+        return vod_season(label=label, series=id, id="")
 
     return folder
 
