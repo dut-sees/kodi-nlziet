@@ -40,7 +40,7 @@ CONST_HAS = {
     'onlinesearch': False,
     'profiles': True,
     'proxy': True,
-    'replay': True,
+    'replay': False,
     'search': True,
     'startfrombeginning': False,
     'upnext': True,
@@ -87,8 +87,8 @@ CONST_LIBRARY = {
 CONST_MOD_CACHE = {}
 
 CONST_VOD_CAPABILITY = [
-    { 'file': 'movies', 'label': _.MOVIES, 'start': 0, 'menu': 0, 'online': 0, 'search': 1, 'az': 1 },
-    { 'file': 'series', 'label': _.SERIESBINGE, 'start': 0, 'menu': 0, 'online': 0, 'search': 1, 'az': 1 },
+    #{ 'file': 'movies', 'label': _.MOVIES, 'start': 0, 'menu': 0, 'online': 0, 'search': 1, 'az': 1 },
+    #{ 'file': 'series', 'label': _.SERIESBINGE, 'start': 0, 'menu': 0, 'online': 0, 'search': 1, 'az': 1 },
     { 'file': 'tipfeednpo', 'label': _.RECOMMENDED + ' - NPO Plus', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
     { 'file': 'tipfeed', 'label': _.RECOMMENDED, 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
     { 'file': 'watchaheadnpo', 'label': _.WATCHAHEAD + ' - NPO Plus', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
