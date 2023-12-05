@@ -89,13 +89,13 @@ CONST_MOD_CACHE = {}
 CONST_VOD_CAPABILITY = [
     { 'file': 'movies', 'label': _.MOVIES, 'start': 0, 'menu': 0, 'online': 0, 'search': 1, 'az': 1 },
     { 'file': 'series', 'label': _.SERIESBINGE, 'start': 0, 'menu': 0, 'online': 0, 'search': 1, 'az': 1 },
-    { 'file': 'tipfeednpo', 'label': _.RECOMMENDED + ' NPO', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
+    { 'file': 'tipfeednpo', 'label': _.RECOMMENDED + ' - NPO Plus', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
     { 'file': 'tipfeed', 'label': _.RECOMMENDED, 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
-    { 'file': 'watchaheadnpo', 'label': _.WATCHAHEAD + ' NPO', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
+    { 'file': 'watchaheadnpo', 'label': _.WATCHAHEAD + ' - NPO Plus', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
     { 'file': 'watchahead', 'label': _.WATCHAHEAD, 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
-    { 'file': 'moviesnpo', 'label': _.MOVIES + ' NPO', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
+    { 'file': 'moviesnpo', 'label': _.MOVIES + ' - NPO Plus', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
     { 'file': 'movies', 'label': _.MOVIES, 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
-    { 'file': 'seriesbingenpo', 'label': _.SERIESBINGE + ' NPO', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
+    { 'file': 'seriesbingenpo', 'label': _.SERIESBINGE + ' - NPO Plus', 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
     { 'file': 'seriesbinge', 'label': _.SERIESBINGE, 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
     { 'file': 'mostviewed', 'label': _.MOSTVIEWED, 'start': 0, 'menu': 0, 'online': 1, 'search': 1, 'az': 0 },
 ]
