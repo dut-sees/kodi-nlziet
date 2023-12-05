@@ -2,7 +2,7 @@ import json, os, shutil, sys, time, xbmc, xbmcaddon, xbmcplugin
 
 from functools import wraps
 from resources.lib.api import api_clean_after_playback, api_get_info
-from resources.lib.base.l1.constants import ADDON_ICON, ADDON_FANART, ADDON_ID, ADDON_NAME, ADDON_PROFILE, DEFAULT_USER_AGENT
+from resources.lib.base.l1.constants import ADDON_ICON, ADDON_FANART, ADDON_ID, ADDON_NAME, ADDON_PROFILE
 from resources.lib.base.l2 import settings
 from resources.lib.base.l2.log import log
 from resources.lib.base.l3.language import _

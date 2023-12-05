@@ -1,8 +1,8 @@
 import socket, requests
 
-from resources.lib.base.l1.constants import DEFAULT_USER_AGENT, SESSION_CHUNKSIZE
+from resources.lib.base.l1.constants import SESSION_CHUNKSIZE
 from resources.lib.base.l2.log import log
-from resources.lib.base.l3.util import load_file, write_file
+from resources.lib.base.l3.util import load_file, write_file, latest_user_agent
 from resources.lib.constants import CONST_BASE_DOMAIN, CONST_BASE_DOMAIN_MOD, CONST_BASE_HEADERS, CONST_BASE_IP
 
 dns_cache = {}
@@ -25,7 +25,7 @@ class Session(requests.Session):
         super(Session, self).__init__()
 
         base_headers = CONST_BASE_HEADERS
-        base_headers.update({'User-Agent': DEFAULT_USER_AGENT})
+        base_headers.update({'User-Agent': latest_user_agent()})
 
         if headers:
             base_headers.update(headers)

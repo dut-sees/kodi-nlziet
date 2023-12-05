@@ -29,10 +29,6 @@ AUDIO_LANGUAGES = {
     'unk': 'Onbekend/Unknown'
 }
 
-DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36'
-DEFAULT_BROWSER_NAME = 'Chrome'
-DEFAULT_BROWSER_VERSION = '96.0.4664.45'
-DEFAULT_OS_NAME = 'Windows'
-DEFAULT_OS_VERSION = '10'
+LATEST_USER_AGENTS = 'https://jnrbsn.github.io/user-agents/user-agents.json'
 
 SESSION_CHUNKSIZE = 4096

@@ -4,7 +4,7 @@ import datetime, re, time, xbmc
 import requests
 
 from collections import OrderedDict
-from resources.lib.base.l1.constants import ADDON_ID, DEFAULT_USER_AGENT, PROVIDER_NAME
+from resources.lib.base.l1.constants import ADDON_ID, PROVIDER_NAME
 from resources.lib.base.l2 import settings
 from resources.lib.base.l2.log import log
 from resources.lib.base.l3.language import _

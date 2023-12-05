@@ -1,7 +1,7 @@
 import base64, glob, hashlib, io, json, os, platform, pytz, re, requests, shutil, struct, time, unicodedata, xbmc, xbmcaddon, xbmcvfs
 
 from collections import OrderedDict
-from resources.lib.base.l1.constants import ADDON_ID, ADDON_PATH, ADDON_PROFILE, CONST_DUT_EPG_SETTINGS, PROVIDER_NAME, USERDATA_PATH
+from resources.lib.base.l1.constants import ADDON_ID, ADDON_PATH, ADDON_PROFILE, CONST_DUT_EPG_SETTINGS, PROVIDER_NAME, USERDATA_PATH, LATEST_USER_AGENTS
 from resources.lib.base.l1.encrypt import Credentials
 from resources.lib.base.l2 import settings
 from resources.lib.base.l2.log import log
@@ -837,3 +837,27 @@ def write_file(file, data, ext=False, isJSON=False):
             f.write(str(json.dumps(data, ensure_ascii=False)))
         else:
             f.write(str(data))
+
+def latest_user_agent():
+    file = os.path.join("cache", "user-agents.json")
+
+    if not is_file_older_than_x_days(file=os.path.join(ADDON_PROFILE, file), days=7):
+        data = load_file(file=file, isJSON=True)
+    else:
+        resp = requests.get(LATEST_USER_AGENTS)
+        try:
+            data = json.loads(resp.json().decode('utf-8'), object_pairs_hook=OrderedDict)
+        except:
+            try:
+                data = resp.json(object_pairs_hook=OrderedDict)
+            except:
+                data = resp.text
+
+        code = resp.status_code
+        if code and code == 200 and data:
+            write_file(file=file, data=data, isJSON=True)
+
+    if not data:
+        return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36'
+
+    return data[0]
