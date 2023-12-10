@@ -640,23 +640,23 @@ def api_set_profile(id=''):
 
 def api_vod_download(type, start=0):
     if type == "moviesnpo":
-        url = '{base_url}/v7/recommend/movies?limit=9999&offset=0&contentProvider=npo'.format(base_url=CONST_URLS['api'], start=start)
+        url = '{base_url}/v8/recommend/movies?limit=9999&offset=0&contentProvider=npo'.format(base_url=CONST_URLS['api'], start=start)
     elif type == "movies":
-        url = '{base_url}/v7/recommend/movies?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
+        url = '{base_url}/v8/recommend/movies?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
     elif type == "watchaheadnpo":
-        url = '{base_url}/v7/watchinadvance?limit=9999&offset=0&contentProvider=npo'.format(base_url=CONST_URLS['api'], start=start)
+        url = '{base_url}/v8/watchinadvance?limit=9999&offset=0&contentProvider=npo'.format(base_url=CONST_URLS['api'], start=start)
     elif type == "watchahead":
-        url = '{base_url}/v7/watchinadvance?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
+        url = '{base_url}/v8/watchinadvance?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
     elif type == "seriesbingenpo":
-        url = '{base_url}/v7/recommend/series?limit=9999&offset=0&contentProvider=npo'.format(base_url=CONST_URLS['api'], start=start)
+        url = '{base_url}/v8/recommend/series?limit=9999&offset=0&contentProvider=npo'.format(base_url=CONST_URLS['api'], start=start)
     elif type == "seriesbinge":
-        url = '{base_url}/v7/recommend/series?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
+        url = '{base_url}/v8/recommend/series?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
     elif type == "mostviewed":
-        url = '{base_url}/v7/recommend/trendingvideos?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
+        url = '{base_url}/v8/recommend/trendingvideos?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
     elif type == "tipfeednpo":
-        url = '{base_url}/v7/recommend/recommendedvideos?limit=9999&offset=0&contentProvider=npo'.format(base_url=CONST_URLS['api'], start=start)
+        url = '{base_url}/v8/recommend/recommendedvideos?limit=9999&offset=0&contentProvider=npo'.format(base_url=CONST_URLS['api'], start=start)
     elif type == "tipfeed":
-        url = '{base_url}/v7/recommend/recommendedvideos?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
+        url = '{base_url}/v8/recommend/recommendedvideos?limit=9999&offset=0'.format(base_url=CONST_URLS['api'], start=start)
     else:
         return None
 

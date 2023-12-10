@@ -204,7 +204,11 @@ def plugin_process_playdata(playdata):
 def plugin_process_vod(data, start=0):
     items = {}
 
+    if 'data' in data:
+        data = data['data']
     for row in data:
+        if 'content' in row:
+            row = row['content']
         if not check_key(row, 'type'):
             type = 'Serie'
         else:
