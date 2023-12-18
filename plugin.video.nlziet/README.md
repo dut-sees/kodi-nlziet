@@ -16,10 +16,6 @@
 
 -Search content
 
--Supports watching TV and listening to radio using the IPTV Simple PVR Addon (through the separate Dut-IPTV Simple IPTV Connector addon)
-
--Supports catchup using IPTV Simple PVR Addon (through the separate Dut-IPTV Simple IPTV Connector addon)
-
 ### Maximum supported Resolution
 
 - 1080P
@@ -31,6 +27,8 @@
 -Kodi 19 or higher with Widevine Support (free)
 
 ### Thanks
+
+-dut-iptv for his development on the initial version of the addon
 
 -Matt Huisman for his development of the kodi addons that where used as a base for this addon
 
