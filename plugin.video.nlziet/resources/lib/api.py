@@ -40,9 +40,9 @@ def api_add_to_watchlist(id, series='', season='', program_type='', type='watchl
     headers = { 'authorization': 'Bearer {id_token}'.format(id_token=profile_settings['access_token'])}
 
     if type == 'continuewatch':
-        watchlist_url = '{base_url}/v7/watchlist/{id}'.format(base_url=CONST_URLS['api'], id=id)
+        watchlist_url = '{base_url}/v8/watchlist/{id}'.format(base_url=CONST_URLS['api'], id=id)
     elif type == 'watchlist':
-        watchlist_url = '{base_url}/v7/trackedseries/{id}'.format(base_url=CONST_URLS['api'], id=id)
+        watchlist_url = '{base_url}/v8/trackedseries/{id}'.format(base_url=CONST_URLS['api'], id=id)
 
     download = api_download(url=watchlist_url, type='post', headers=headers, data=None, json_data=False, return_json=False)
     code = download['code']
@@ -158,9 +158,9 @@ def api_list_watchlist(type='watchlist'):
     headers = { 'authorization': 'Bearer {id_token}'.format(id_token=profile_settings['access_token'])}
 
     if type == 'continuewatch':
-        watchlist_url = '{base_url}/v7/watchlist?limit=999&offset=0'.format(base_url=CONST_URLS['api'])
+        watchlist_url = '{base_url}/v8/watchlist?limit=999&offset=0'.format(base_url=CONST_URLS['api'])
     elif type == 'watchlist':
-        watchlist_url = '{base_url}/v7/trackedseries?limit=999&offset=0'.format(base_url=CONST_URLS['api'])
+        watchlist_url = '{base_url}/v8/trackedseries?limit=999&offset=0'.format(base_url=CONST_URLS['api'])
 
     download = api_download(url=watchlist_url, type='get', headers=headers, data=None, json_data=False, return_json=True)
     data = download['data']
@@ -448,9 +448,9 @@ def api_remove_from_watchlist(id, type='watchlist'):
     headers = { 'authorization': 'Bearer {id_token}'.format(id_token=profile_settings['access_token'])}
 
     if type == 'continuewatch':
-        watchlist_url = '{base_url}/v7/watchlist/{id}'.format(base_url=CONST_URLS['api'], id=id)
+        watchlist_url = '{base_url}/v8/watchlist/{id}'.format(base_url=CONST_URLS['api'], id=id)
     elif type == 'watchlist':
-        watchlist_url = '{base_url}/v7/trackedseries/{id}'.format(base_url=CONST_URLS['api'], id=id)
+        watchlist_url = '{base_url}/v8/trackedseries/{id}'.format(base_url=CONST_URLS['api'], id=id)
 
     download = api_download(url=watchlist_url, type='delete', headers=headers, data=None, json_data=False, return_json=False)
     code = download['code']
