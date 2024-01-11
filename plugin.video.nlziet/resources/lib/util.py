@@ -301,7 +301,12 @@ def plugin_process_vod_season(series, id, data):
     if not data:
         return None
 
+    if 'data' in data:
+        data = data['data']
+
     for row in data:
+        if 'content' in row:
+            row = row['content']
         duration = 0
         ep_id = ''
         desc = ''

@@ -692,7 +692,7 @@ def api_vod_season(series, id, use_cache=True):
         data = load_file(file=file, isJSON=True)
         cache = 1
     else:
-        program_url = '{base_url}/v7/series/{series}/episodes?seasonId={id}&limit=999&offset=0'.format(base_url=CONST_URLS['api'], series=series, id=id)
+        program_url = '{base_url}/v8/series/{series}/episodes?seasonId={id}&limit=100&offset=0'.format(base_url=CONST_URLS['api'], series=series, id=id)
         download = api_download(url=program_url, type='get', headers=None, data=None, json_data=False, return_json=True)
         data = download['data']
         code = download['code']
@@ -714,7 +714,7 @@ def api_vod_seasons(type, id, use_cache=True):
         data = load_file(file=file, isJSON=True)
         cache = 1
     else:
-        program_url = '{base_url}/v7/series/{id}'.format(base_url=CONST_URLS['api'], id=id)
+        program_url = '{base_url}/v8/series/{id}'.format(base_url=CONST_URLS['api'], id=id)
         download = api_download(url=program_url, type='get', headers=None, data=None, json_data=False, return_json=True)
         data = download['data']
         code = download['code']
