@@ -2,7 +2,7 @@ import _strptime
 import datetime, json, os, pytz, re, string, sys, time, xbmc, xbmcaddon, xbmcplugin
 
 from fuzzywuzzy import fuzz
-from resources.lib.api import api_add_to_watchlist, api_get_profiles, api_set_profile, api_list_watchlist, api_login, api_play_url, api_remove_from_watchlist, api_search, api_vod_download, api_vod_season, api_vod_seasons, api_watchlist_listing
+from resources.lib.api import api_add_to_watchlist, api_get_profiles, api_set_profile, api_list_watchlist, api_login, api_play_url, api_remove_from_watchlist, api_search, api_vod_download, api_vod_season, api_vod_seasons, api_watchlist_listing, api_get_channels_v2
 from resources.lib.base.l1.constants import ADDON_ID, ADDON_PROFILE, ADDON_VERSION, ADDONS_PATH, AUDIO_LANGUAGES, PROVIDER_NAME
 from resources.lib.base.l2 import settings
 from resources.lib.base.l2.log import log
@@ -102,7 +102,7 @@ def login(ask=1, **kwargs):
 def live_tv(**kwargs):
     folder = plugin.Folder(title=_.LIVE_TV)
 
-    for row in get_live_channels():
+    for row in get_live_channels_v2():
         folder.add_item(
             label = row['label'],
             info = {'plot': row['description']},
@@ -1251,6 +1251,58 @@ def get_live_channels(all=False):
                     'playable': playable,
                     'context': context,
                 })
+
+    return channels
+
+
+def get_live_channels_v2(all=False):
+    global backend
+    channels = []
+
+    data = api_get_channels_v2()
+    if 'data' in data:
+        data = data['data']
+
+    prefs = load_prefs(profile_id=1)
+
+    if 'data' in data:
+        data = data['data']
+
+    if data:
+        channelno = 1
+        for currow in data:
+            channel = currow['channel']
+
+            path = plugin.url_for(func_or_url=play_video, type='channel', channel=channel['id'], id=channel['id'], _is_live=True)
+            playable = True
+            if channel["missingSubscriptionFeature"] is not None:
+                playable = False
+
+            id = str(channel['id'])
+
+            if all or not prefs or not check_key(prefs, id) or prefs[id]['live'] == 1:
+                context = []
+
+                if CONST_HAS['startfrombeginning']:
+                    context = [
+                        (_.START_BEGINNING, 'RunPlugin({context_url})'.format(context_url=plugin.url_for(func_or_url=play_video, type='channel', channel=id, id=str(channel['id']), from_beginning=1, _is_live=True)), ),
+                    ]
+
+                context = [
+                    (_.SELECT_AUDIO_LANGUAGE, 'RunPlugin({context_url})'.format(context_url=plugin.url_for(func_or_url=play_video, type='channel', channel=id, id=str(channel['id']), from_beginning=0, change_audio=1, _is_live=True)), ),
+                ]
+
+                channels.append({
+                    'label': str(channel['title']) + ('' if playable else " (NLZIET Extra)"),
+                    'channel': id,
+                    'chno': str(channelno),
+                    'description': "",
+                    'image': str(channel["logo"]["normalUrl"]),
+                    'path':  path,
+                    'playable': playable,
+                    'context': context,
+                })
+            channelno += 1
 
     return channels
 

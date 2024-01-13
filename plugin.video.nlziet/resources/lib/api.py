@@ -638,6 +638,24 @@ def api_set_profile(id=''):
 
     return True
 
+def api_get_channels_v2(use_cache=True):
+    file = os.path.join("cache", "channels-v2.json".format(type=type))
+
+    cache = 0
+    if not is_file_older_than_x_days(file=os.path.join(ADDON_PROFILE, file), days=0.5) and use_cache == True:
+        data = load_file(file=file, isJSON=True)
+        cache = 1
+    else:
+        program_url = '{base_url}/v8/epg/programlocations/live'.format(base_url=CONST_URLS['api'])
+        download = api_download(url=program_url, type='get', headers=None, data=None, json_data=False, return_json=True)
+        data = download['data']
+        code = download['code']
+
+        if code and code == 200 and data:
+            write_file(file=file, data=data, isJSON=True)
+
+    return {'data': data, 'cache': cache}
+
 def api_vod_download(type, start=0):
     if type == "moviesnpo":
         url = '{base_url}/v8/recommend/movies?limit=9999&offset=0&contentProvider=npo'.format(base_url=CONST_URLS['api'], start=start)
