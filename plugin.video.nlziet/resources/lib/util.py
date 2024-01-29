@@ -375,6 +375,12 @@ def plugin_process_vod_seasons(id, data):
     if not data:
         return None
 
+    if 'data' in data:
+        data = data['data']
+
+    if 'content' in data:
+        data = data['content']
+
     season_count = 0
 
     if check_key(data, 'seasons'):
