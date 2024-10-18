@@ -412,7 +412,7 @@ def api_play_url(type, channel=None, id=None, video_data=None, from_beginning=0,
     path = data['uri']
 
     if not type == 'vod' and (pvr == 0):
-        info_url = '{base_url}/v7/epg/location/{location}'.format(base_url=CONST_URLS['api'], location=id)
+        info_url = '{base_url}/v9/epg/programlocations/live?channel={channel}'.format(base_url=CONST_URLS['api'], channel=channel)
 
         download = api_download(url=info_url, type='get', headers=headers, data=None, json_data=False, return_json=True)
         data = download['data']
